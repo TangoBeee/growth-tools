@@ -1,5 +1,5 @@
-const axios = window.axios
-const yaml = window.jsyaml
+import axios from "axios"
+import yaml from "js-yaml"
 
 export const validate = async (value) => {
 	try {

@@ -10,10 +10,6 @@ import { downloadGraph } from "./utils/DownloadGraph"
 
 const App = () => {
 	UseExternalScripts(
-		"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-	)
-
-	UseExternalScripts(
 		"https://d1hvi6xs55woen.cloudfront.net/website-assets/polaris.css"
 	)
 

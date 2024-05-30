@@ -1,4 +1,4 @@
-const axios = window.axios
+import axios from "axios"
 
 export const fetchJob = async (openApi, setError) => {
 	try {

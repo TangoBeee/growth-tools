@@ -6,6 +6,10 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.2",
+    "elkjs": "^0.9.3",
+    "html-to-image": "^1.11.11",
+    "js-yaml": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -17,7 +21,6 @@
     "build": "cross-env NODE_ENV=production REACT_APP_BASE_API_URL=http://65.0.27.121:8080 REACT_APP_OPENAPI_VALIDATOR_BASE_URL=http://65.0.27.121:80 webpack --progress --config webpack-config.js",
     "hot": "cross-env NODE_ENV=development  webpack --watch --progress --config webpack-config.js"
   },
-
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -1,4 +1,4 @@
-const toSvg = window.htmlToImage.toSvg
+import { toSvg } from "html-to-image"
 
 export const downloadGraph = async (setCenterGraph) => {
 	setCenterGraph((prev) => !prev)

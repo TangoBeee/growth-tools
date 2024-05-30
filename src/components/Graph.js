@@ -8,9 +8,10 @@ import ReactFlow, {
 	useReactFlow,
 } from "reactflow"
 import "reactflow/dist/style.css"
+import ELK from "elkjs/lib/elk.bundled.js"
 import Loading from "./Loading"
 
-const elk = new window.ELK()
+const elk = new ELK()
 
 const useLayoutedElements = (centerGraph) => {
 	const { getNodes, setNodes, getEdges, fitView } = useReactFlow()
@@ -22,7 +23,7 @@ const useLayoutedElements = (centerGraph) => {
 
 	const reactFlow = useReactFlow()
 	useEffect(() => {
-		reactFlow.fitView();
+		reactFlow.fitView()
 	}, [centerGraph])
 
 	const getLayoutedElements = useCallback((options) => {
