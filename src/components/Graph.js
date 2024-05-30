@@ -90,6 +90,7 @@ const Graph = ({ nodes, edges, error, centerGraph, isLoading }) => {
 				display: "flex",
 				justifyContent: "center",
 				alignItems: "center",
+				textAlign: "center",
 				height: "70vh",
 				border: "1px solid #E2E1E5",
 			}}
