@@ -1,7 +1,7 @@
 const toSvg = window.htmlToImage.toSvg
 
 export const downloadGraph = async (setCenterGraph) => {
-    setCenterGraph((prev) => !prev)
+	setCenterGraph((prev) => !prev)
 
 	function filter(node) {
 		return node.tagName !== "i"
@@ -9,16 +9,14 @@ export const downloadGraph = async (setCenterGraph) => {
 
 	let elements = document.getElementsByClassName("react-flow__renderer")[0]
 
-    if(!elements) return;
+	if (!elements) return
 
 	toSvg(elements, { filter: filter }).then(async (svgContent) => {
 		const svgElement = await decodeURIComponent(
 			svgContent.replace("data:image/svg+xml;charset=utf-8,", "").trim()
 		)
 
-		const newWindow = window.open()
-
-		newWindow.document.write(`
+		const htmlContent = `
             <html>
             <head>
             <title>Graph.pdf</title>
@@ -37,12 +35,22 @@ export const downloadGraph = async (setCenterGraph) => {
             </head>
             <body style="margin:60px 32px 32px 32px ">
                 ${svgElement}
-                <script>
-                window.print();
-                window.close();
-                </script>
             </body>
             </html>
-        `)
+        `
+
+		const blob = new Blob([htmlContent], { type: "text/html" })
+		const url = URL.createObjectURL(blob)
+
+		const iframe = document.createElement("iframe")
+		iframe.style.display = "none"
+		iframe.src = url
+
+		iframe.onload = () => {
+			iframe.contentWindow.print()
+			URL.revokeObjectURL(url)
+		}
+
+		document.body.appendChild(iframe)
 	})
 }
